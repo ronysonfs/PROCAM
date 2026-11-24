@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#05070b"><title>ProCam X — Studio</title>
+<style>
+:root{--bg:#05070b;--glass:#101722dd;--stroke:#ffffff26;--txt:#f5f7fb;--muted:#a5b0bf;--mint:#78e6d5;--red:#ff4058}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#000;color:var(--txt);font-family:system-ui,-apple-system,Roboto,sans-serif}button,select,input{font:inherit}button{color:inherit;border:0;background:none;touch-action:manipulation}.app{height:100dvh;width:100%;max-width:520px;margin:auto;position:relative;background:#000;overflow:hidden}.view{position:absolute;inset:0;background:#000}.view video{width:100%;height:100%;object-fit:cover}.shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(#0009,transparent 19%,transparent 68%,#000d)}.gridline{position:absolute;inset:0;pointer-events:none;display:none;background:linear-gradient(90deg,transparent 33.1%,#ffffff48 33.3%,transparent 33.6%,transparent 66.3%,#ffffff48 66.5%,transparent 66.8%),linear-gradient(0deg,transparent 33.1%,#ffffff48 33.3%,transparent 33.6%,transparent 66.3%,#ffffff48 66.5%,transparent 66.8%)}.gridline.on{display:block}.top{position:absolute;top:env(safe-area-inset-top,0px);left:0;right:0;padding:12px 15px;display:flex;justify-content:space-between;align-items:center;z-index:3}.logo{font-weight:900;letter-spacing:2px;font-size:15px;text-shadow:0 2px 6px #000}.logo span{color:var(--mint)}.top-actions{display:flex;gap:8px}.round{height:40px;width:40px;border-radius:50%;background:#07101bbb;border:1px solid var(--stroke);backdrop-filter:blur(12px);font-size:18px}.badges{position:absolute;top:calc(env(safe-area-inset-top,0px) + 62px);left:10px;right:10px;display:flex;justify-content:center;gap:6px;z-index:2}.badge{font-size:10px;padding:6px 8px;border-radius:9px;background:#03070bbd;border:1px solid var(--stroke);backdrop-filter:blur(8px)}.focus{position:absolute;width:58px;height:58px;border:1px solid var(--mint);border-radius:50%;transform:translate(-50%,-50%);display:none;pointer-events:none}.focus:before,.focus:after{content:"";position:absolute;background:var(--mint)}.focus:before{width:72px;height:1px;left:-8px;top:28px}.focus:after{height:72px;width:1px;left:28px;top:-8px}.zoomrow{position:absolute;bottom:225px;left:0;right:0;display:flex;justify-content:center;gap:9px;z-index:3}.zoom{height:42px;min-width:42px;border-radius:24px;background:#07101bcc;border:1px solid var(--stroke);font-size:12px}.zoom.active{background:#e4fff9;color:#081310;font-weight:800}.bottom{position:absolute;bottom:0;left:0;right:0;padding:8px 14px calc(env(safe-area-inset-bottom,0px) + 14px);z-index:4;background:linear-gradient(transparent,#020407f5 25%)}.quick{display:flex;justify-content:center;gap:7px;margin-bottom:12px}.quick button{background:#101925d9;border:1px solid var(--stroke);border-radius:10px;padding:8px 10px;font-size:10px}.quick b{color:var(--mint)}.modes{display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:14px;white-space:nowrap}.modes button{font-size:11px;color:#bac3cf;padding:6px 0}.modes button.active{font-size:14px;font-weight:850;color:var(--mint)}.capture{display:flex;align-items:center;justify-content:space-around}.side{width:48px;height:48px;border-radius:50%;background:#17212d;border:1px solid var(--stroke);font-size:19px}.shutter{height:76px;width:76px;border:5px solid white;border-radius:50%;padding:5px;display:grid;place-items:center}.shutter span{height:100%;width:100%;background:#fff;border-radius:50%}.shutter.rec span{height:28px;width:28px;background:var(--red);border-radius:8px}.timer{position:absolute;bottom:190px;left:50%;transform:translateX(-50%);padding:6px 12px;border-radius:20px;background:#000c;font-size:12px;display:none}.panel{position:absolute;z-index:8;bottom:0;left:0;right:0;max-height:78%;overflow:auto;padding:11px 16px calc(env(safe-area-inset-bottom,0px) + 20px);border:1px solid var(--stroke);border-radius:24px 24px 0 0;background:#101722;transform:translateY(110%);transition:transform .24s}.panel.open{transform:translateY(0)}.handle{width:38px;height:4px;border-radius:9px;background:#677486;margin:0 auto 14px}.panelhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:13px}.panelhead strong{font-size:16px}.close{font-size:24px;color:var(--muted)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.field{background:#192331;border:1px solid #ffffff12;border-radius:12px;padding:10px;min-width:0}.field label{display:block;color:var(--muted);font-size:10px;margin-bottom:7px}.field select{width:100%;background:#0a111b;color:white;border:1px solid #354357;border-radius:8px;padding:8px;font-size:12px}.field input{width:100%;accent-color:var(--mint)}.value{color:var(--mint);font-size:11px}.toggles{display:flex;flex-wrap:wrap;gap:13px;margin:13px 0;font-size:11px;color:var(--muted)}input[type=checkbox]{accent-color:var(--mint)}.note{font-size:10px;line-height:1.5;color:#9eabba}.toast{position:absolute;z-index:10;top:calc(env(safe-area-inset-top,0px) + 112px);left:12px;right:12px;padding:11px 13px;background:#111b27f2;border:1px solid var(--stroke);border-radius:13px;font-size:12px;line-height:1.4;display:none}.toast.show{display:block}.toast strong{color:var(--mint)}.meter{position:absolute;left:15px;bottom:230px;font-size:10px;color:#fff;background:#0008;padding:6px 8px;border-radius:8px}.disabled{opacity:.45}
+</style>
+<style id="ios-camera-skin">
+:root{--mint:#f5f5f7;--stroke:#ffffff20;--glass:#08090bcc}
+body{background:#000;color:#fff}
+.app{max-width:520px;background:#000}
+.top{padding:calc(env(safe-area-inset-top,0px) + 10px) 18px 8px}
+.logo{font-size:0;letter-spacing:0}
+.logo:after{content:"PROCAM X";font-size:13px;letter-spacing:2.5px;font-weight:700;color:#fff}
+.logo span{display:none}
+.round{background:#17191dcc;border:1px solid #ffffff18;backdrop-filter:blur(18px);width:38px;height:38px;font-size:16px}
+.badges{top:calc(env(safe-area-inset-top,0px) + 59px);gap:5px}
+.badge{background:#101114b8;border:1px solid #ffffff1b;border-radius:20px;font-size:9px;letter-spacing:.35px;padding:6px 9px}
+.shade{background:linear-gradient(#0007,transparent 17%,transparent 70%,#000c)}
+.zoomrow{bottom:229px;gap:16px}
+.zoom{min-width:36px;height:36px;border:0;background:#202124c9;color:#fff;font-size:11px;font-weight:600;backdrop-filter:blur(15px)}
+.zoom.active{background:#f5f5f7;color:#111;font-weight:800;box-shadow:0 0 0 2px #ffffff65}
+.bottom{padding:8px 14px calc(env(safe-area-inset-bottom,0px) + 13px);background:linear-gradient(transparent,#000 22%)}
+.quick{gap:7px;margin-bottom:12px}
+.quick button{background:#151619d9;border:1px solid #ffffff20;border-radius:22px;padding:7px 11px;font-size:9px;color:#f5f5f7}
+.quick b{color:#fff}
+.modes{gap:22px;margin-bottom:14px}
+.modes button{font-size:11px;color:#b9bbc0;letter-spacing:.1px}
+.modes button.active{font-size:13px;color:#ffd45c;font-weight:750}
+.capture{justify-content:space-between;padding:0 25px}
+.side{width:43px;height:43px;background:#191a1e;border:1px solid #ffffff20;color:#fff}
+.shutter{width:72px;height:72px;border:4px solid #f5f5f7;padding:4px;background:#111}
+.shutter span{background:#f5f5f7}
+.shutter.rec span{background:#ff3b30;border-radius:7px;width:27px;height:27px}
+.timer{bottom:188px;background:#17181bdc;border:1px solid #ffffff1c}
+.panel{background:#17181c;border:1px solid #ffffff1c;border-radius:25px 25px 0 0}
+.handle{background:#777980}
+.field{background:#222429;border:1px solid #ffffff12}
+.field select{background:#15161a;border-color:#3b3d43}
+.field input{accent-color:#ffd45c}
+.value{color:#ffd45c}
+.close{color:#ddd}
+.note{color:#a9abb2}
+.toast{background:#191a1feF;border:1px solid #ffffff1b}
+.toast strong{color:#ffd45c}
+.gridline{background:linear-gradient(90deg,transparent 33.1%,#ffffff38 33.3%,transparent 33.6%,transparent 66.3%,#ffffff38 66.5%,transparent 66.8%),linear-gradient(0deg,transparent 33.1%,#ffffff38 33.3%,transparent 33.6%,transparent 66.3%,#ffffff38 66.5%,transparent 66.8%)}
+</style>
+
+</head>
+<body><main class="app">
+<div class="view" id="view"><video id="video" autoplay muted playsinline></video><div class="shade"></div><div class="gridline on" id="gridline"></div><div class="focus" id="focus"></div></div>
+<header class="top"><div class="logo">PROCAM <span>X</span></div><div class="top-actions"><button class="round" id="openPanel">⚙</button><button class="round" id="flashBtn">ϟ</button></div></header>
+<div class="badges"><span class="badge" id="resolution">AGUARDANDO CÂMERA</span><span class="badge" id="fpsBadge">— FPS</span><span class="badge" id="lensBadge">TRASEIRA</span></div>
+<div class="meter" id="capability">Aguardando permissões</div>
+<div class="zoomrow" id="zoomrow"><button class="zoom active" data-zoom="1">1×</button><button class="zoom" data-zoom="2">2×</button><button class="zoom" data-zoom="4">4×</button></div>
+<div class="timer" id="timer">00:00</div><div class="toast" id="toast"></div>
+<section class="bottom">
+<div class="quick"><button id="quickRes">4K <b>⌄</b></button><button id="quickFps">30 <b>⌄</b></button><button id="proBtn">AJUSTES <b>⌄</b></button></div>
+<nav class="modes" id="modes"><button data-mode="night">CINEMA</button><button data-mode="portrait">RETRATO</button><button data-mode="photo" class="active">FOTO</button><button data-mode="video">VÍDEO</button><button data-mode="pro">PRO</button></nav>
+<div class="capture"><button class="side" id="last" aria-label="Última captura">▧</button><button class="shutter" id="shutter"><span></span></button><button class="side" id="switch" aria-label="Alternar câmera">↻</button></div>
+</section>
+<section class="panel" id="panel"><div class="handle"></div><div class="panelhead"><strong>Pro Controls</strong><button class="close" id="close">×</button></div>
+<div class="grid">
+<div class="field"><label>RESOLUÇÃO DE VÍDEO</label><select id="resolutionSelect"><option value="3840x2160">4K UHD</option><option value="1920x1080" selected>Full HD</option><option value="1280x720">HD</option></select></div>
+<div class="field"><label>FPS</label><select id="fpsSelect"><option>24</option><option selected>30</option><option>60</option></select></div>
+<div class="field"><label>BITRATE</label><select id="bitrate"><option value="12000000">12 Mbps</option><option value="20000000">20 Mbps</option><option value="30000000" selected>30 Mbps</option><option value="45000000">45 Mbps</option></select></div>
+<div class="field"><label>FORMATO DE FOTO</label><select id="photoFormat"><option value="jpeg">JPEG alta qualidade</option><option value="png">PNG</option></select></div>
+<div class="field"><label>EXPOSIÇÃO <span class="value" id="ev">0.0 EV</span></label><input id="exposure" type="range" min="-2" max="2" step=".1" value="0"></div>
+<div class="field"><label>CONTRASTE <span class="value" id="contrastVal">100%</span></label><input id="contrast" type="range" min="90" max="115" value="100"></div>
+<div class="field"><label>SATURAÇÃO <span class="value" id="satVal">100%</span></label><input id="saturation" type="range" min="80" max="120" value="100"></div>
+<div class="field"><label>NITIDEZ <span class="value" id="sharpVal">0</span></label><input id="sharp" type="range" min="0" max="35" value="0"></div>
+</div>
+<div class="toggles"><label><input type="checkbox" id="gridToggle" checked> Grade</label><label><input type="checkbox" id="mirror"> Espelhar selfie</label><label><input type="checkbox" id="torch"> Flash contínuo</label><label><input type="checkbox" id="stabilize" checked> Solicitar estabilização</label></div>
+<p class="note" id="supportText">Aguardando leitura dos recursos da câmera. O aplicativo só oferecerá controles realmente aceitos pelo dispositivo.</p>
+<p class="note">Importante: filtros são aplicados às fotos exportadas. Não adicionamos nitidez artificial ao vídeo, pois isso pode reduzir a qualidade. Para RAW/DNG, captura real em 200 MP, HDR computacional, estabilização avançada e processamento multicaptura, será necessária a versão Android nativa usando Camera2/CameraX e os recursos expostos pelo firmware Xiaomi.</p>
+</section></main>
+<script>
+const $=id=>document.getElementById(id);
+const video=$('video'),canvas=document.createElement('canvas'),ctx=canvas.getContext('2d');
+let stream=null,track=null,recorder=null,chunks=[],facing='environment',mode='photo',lastUrl=null,clock=null,elapsed=0,zoom=1,photoCount=0;
+const say=t=>{let el=$('toast');el.innerHTML=t;el.classList.add('show');clearTimeout(say.t);say.t=setTimeout(()=>el.classList.remove('show'),4300)};
+const capabilities=()=>track?.getCapabilities?.()||{};
+function supportedText(){if(!track)return;let c=capabilities(),s=track.getSettings();let bits=[];bits.push(`Fluxo atual: ${s.width||'?'}×${s.height||'?'} a ${s.frameRate||'?'} fps`);bits.push(c.zoom?'zoom do sensor disponível':'zoom via recorte digital');bits.push(c.exposureCompensation?'exposição manual disponível':'exposição manual não exposta');bits.push(c.torch?'flash contínuo disponível':'flash contínuo não exposto');bits.push(c.focusMode?'modos de foco: '+c.focusMode.join(', '):'foco controlado automaticamente');$('supportText').textContent=bits.join(' • ');$('capability').textContent=(s.width||'?')+'×'+(s.height||'?')+' • '+(s.frameRate||'?')+'fps'}
+async function startCamera(){
+ try{stopCamera();let [w,h]=$('resolutionSelect').value.split('x').map(Number),fps=Number($('fpsSelect').value);
+ let videoConstraints={facingMode:{ideal:facing},width:{ideal:w},height:{ideal:h},frameRate:{ideal:fps}};
+ if($('stabilize').checked)videoConstraints.advanced=[{videoStabilizationMode:'auto'}];
+ stream=await navigator.mediaDevices.getUserMedia({audio:mode==='video'?{echoCancellation:true,noiseSuppression:true,autoGainControl:true}:false,video:videoConstraints});
+ video.srcObject=stream;await video.play();track=stream.getVideoTracks()[0];let s=track.getSettings();
+ $('resolution').textContent=(s.width||'?')+'×'+(s.height||'?');$('fpsBadge').textContent=(s.frameRate||fps)+' FPS';$('lensBadge').textContent=facing==='user'?'FRONTAL':'TRASEIRA';video.style.transform='';applyZoom();supportedText();
+ say('<strong>Câmera ativa.</strong> Resolução real do fluxo exibida no topo.');if($('torch').checked)toggleTorch(true);
+ }catch(e){say('<strong>Não foi possível iniciar.</strong> Autorize câmera e microfone; use HTTPS ou WebView Android com permissões. '+e.message)}
+}
+function stopCamera(){if(recorder?.state==='recording')recorder.stop();stream?.getTracks().forEach(t=>t.stop());stream=null;track=null;video.srcObject=null}
+function applyZoom(z=zoom){zoom=z;$('zoomrow').querySelectorAll('button').forEach(b=>b.classList.toggle('active',Number(b.dataset.zoom)===z));let c=capabilities();if(c.zoom)track?.applyConstraints({advanced:[{zoom:Math.min(c.zoom.max,Math.max(c.zoom.min,z))}]}).catch(()=>{});else video.style.transform=`scale(${z})`}
+function toggleTorch(on){let c=capabilities();if(c.torch)track.applyConstraints({advanced:[{torch:on}]}).catch(()=>{});else{if(on)$('torch').checked=false;say('O Android não disponibilizou o flash contínuo para esta lente.')}}
+function exportBlob(blob,name){if(lastUrl)URL.revokeObjectURL(lastUrl);lastUrl=URL.createObjectURL(blob);let a=document.createElement('a');a.href=lastUrl;a.download=name;a.click()}
+function sharpenPixels(img,amount){if(!amount)return img;let d=img.data,src=new Uint8ClampedArray(d),w=img.width,h=img.height,k=amount/100;for(let y=1;y<h-1;y++)for(let x=1;x<w-1;x++){let i=(y*w+x)*4;for(let c=0;c<3;c++)d[i+c]=src[i+c]*(1+4*k)-k*(src[i-4+c]+src[i+4+c]+src[i-w*4+c]+src[i+w*4+c])}return img}
+function takePhoto(){
+ if(!stream)return say('<strong>Inicie a câmera primeiro.</strong>');
+ const s=track.getSettings();canvas.width=s.width||video.videoWidth;canvas.height=s.height||video.videoHeight;
+ ctx.save();if(facing==='user'&&$('mirror').checked){ctx.translate(canvas.width,0);ctx.scale(-1,1)}
+ ctx.filter=`contrast(${$('contrast').value}%) saturate(${$('saturation').value}%)`;
+ ctx.drawImage(video,0,0,canvas.width,canvas.height);ctx.restore();
+ if(Number($('sharp').value)>0){let im=ctx.getImageData(0,0,canvas.width,canvas.height);ctx.putImageData(sharpenPixels(im,Number($('sharp').value)),0,0)}
+ let mime=$('photoFormat').value==='png'?'image/png':'image/jpeg';
+ canvas.toBlob(blob=>{if(blob){photoCount++;exportBlob(blob,'ProCamX_'+Date.now()+(mime==='image/png'?'.png':'.jpg'));say(`<strong>Foto exportada.</strong> ${canvas.width} × ${canvas.height}. A resolução corresponde ao fluxo recebido, não necessariamente aos 200 MP do sensor.`)}},mime,.97)
+}
+function recordVideo(){
+ if(!stream)return say('<strong>Inicie a câmera primeiro.</strong>');
+ if(recorder?.state==='recording'){recorder.stop();return}
+ let types=['video/mp4;codecs=avc1.42E01E','video/webm;codecs=vp9','video/webm;codecs=vp8','video/webm'];
+ let mime=types.find(t=>MediaRecorder.isTypeSupported(t))||'';
+ try{recorder=new MediaRecorder(stream,{mimeType:mime||undefined,videoBitsPerSecond:Number($('bitrate').value)});chunks=[];
+ recorder.ondataavailable=e=>{if(e.data?.size)chunks.push(e.data)};
+ recorder.onstop=()=>{let type=recorder.mimeType||'video/webm',ext=type.includes('mp4')?'mp4':'webm';exportBlob(new Blob(chunks,{type}),'ProCamX_video_'+Date.now()+'.'+ext);clearInterval(clock);$('timer').style.display='none';$('shutter').classList.remove('rec');say('<strong>Gravação finalizada.</strong> O arquivo foi exportado pelo navegador.')};
+ recorder.start(500);elapsed=0;$('timer').style.display='block';$('shutter').classList.add('rec');clock=setInterval(()=>$('timer').textContent=new Date(elapsed++*1000).toISOString().slice(14,19),1000);say('<strong>Gravando vídeo…</strong> Toque no botão central para finalizar.');
+ }catch(e){say('Falha ao iniciar gravação: '+e.message)}
+}
+$('shutter').onclick=()=>mode==='video'?recordVideo():takePhoto();
+$('switch').onclick=()=>{facing=facing==='environment'?'user':'environment';if(stream)startCamera();else $('lensBadge').textContent=facing==='user'?'FRONTAL':'TRASEIRA'};
+$('openPanel').onclick=$('proBtn').onclick=()=>$('panel').classList.add('open');$('close').onclick=()=>$('panel').classList.remove('open');
+$('zoomrow').onclick=e=>{let b=e.target.closest('[data-zoom]');if(b)applyZoom(Number(b.dataset.zoom))};
+$('resolutionSelect').onchange=()=>{let v=$('resolutionSelect').value;$('quickRes').innerHTML='QUALIDADE <b>'+(v==='3840x2160'?'4K':v==='1920x1080'?'FHD':'HD')+'</b>';if(stream)startCamera()};
+$('fpsSelect').onchange=()=>{ $('quickFps').innerHTML='FPS <b>'+$('fpsSelect').value+'</b>';if(stream)startCamera()};
+$('quickRes').onclick=()=>{$('panel').classList.add('open');$('resolutionSelect').focus()};
+$('quickFps').onclick=()=>{$('panel').classList.add('open');$('fpsSelect').focus()};
+$('exposure').oninput=e=>{let v=Number(e.target.value);$('ev').textContent=v.toFixed(1)+' EV';if(capabilities().exposureCompensation)track.applyConstraints({advanced:[{exposureCompensation:v}]}).catch(()=>{})};
+$('contrast').oninput=e=>$('contrastVal').textContent=e.target.value+'%';$('saturation').oninput=e=>$('satVal').textContent=e.target.value+'%';$('sharp').oninput=e=>$('sharpVal').textContent=e.target.value;
+$('gridToggle').onchange=e=>$('gridline').classList.toggle('on',e.target.checked);
+$('torch').onchange=e=>toggleTorch(e.target.checked);
+$('flashBtn').onclick=()=>{let on=!$('torch').checked;$('torch').checked=on;toggleTorch(on)};
+$('view').onclick=e=>{if(!stream)return;let r=video.getBoundingClientRect();$('focus').style.left=(e.clientX-r.left)/r.width*100+'%';$('focus').style.top=(e.clientY-r.top)/r.height*100+'%';$('focus').style.display='block';let c=capabilities();if(c.focusMode?.includes('single-shot'))track.applyConstraints({advanced:[{focusMode:'single-shot'}]}).catch(()=>{});setTimeout(()=>$('focus').style.display='none',950)};
+$('modes').onclick=e=>{let b=e.target.closest('[data-mode]');if(!b)return;mode=b.dataset.mode;$('modes').querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===b));$('shutter').classList.toggle('rec',mode==='video');say(mode==='night'||mode==='portrait'?'<strong>Modo '+mode.toUpperCase()+' experimental.</strong> Efeitos computacionais avançados precisam de processamento nativo.':mode==='pro'?'<strong>Modo Pro.</strong> Abra Controles para ajustar os parâmetros que o aparelho permitir.':'Modo '+mode.toUpperCase()+' selecionado.');if(stream&&mode==='video'&&facing==='user'&&Number($('fpsSelect').value)>60)$('fpsSelect').value='60'};
+$('last').onclick=()=>lastUrl?window.open(lastUrl,'_blank'):say('As capturas são exportadas para a pasta de downloads do navegador.');
+if(!navigator.mediaDevices?.getUserMedia)say('<strong>Este ambiente não oferece acesso à câmera.</strong> Use Chrome Android ou WebView com permissão de câmera.');
+</script></body></html>
